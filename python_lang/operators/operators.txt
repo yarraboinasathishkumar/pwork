@@ -1,0 +1,66 @@
+Arithmetic operators:
++
+-
+*
+/
+%
+**
+//
+
+Comparison/Relational operators:
+==
+!=
+<>
+>
+<
+>=
+<=
+
+Logical operators:
+and
+or
+not
+
+Bitwise operators:
+&
+|
+^
+~
+<<
+>>
+
+Assignment operators:
+=
++=
+-=
+*=
+/=
+%=
+**=
+//=
+
+Membership operators:
+in
+not in
+
+Identity operators:
+is
+is not
+
+Operator precedence:
+1. Exponention : ** 
+2. Unary : ~ + -
+3. Multiplicative : * ? % //
+4. additive : + -
+5. Shift : >> <<
+6. Bitwise AND : &
+7. Bitwise XOR OR : ^ |
+8. Comparison : < > <= >=
+9. Equality : <> == !=
+10. Assignment : = %= /= //= -= += *= **=
+11. Identity : is is not
+12. Membership : in not in
+13. Logical : not or and 
+
+ 
+

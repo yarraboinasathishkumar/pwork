@@ -1,0 +1,69 @@
+Arithmetic operators:
++
+-
+*
+/
+%
+++
+--
+
+Relational operators:
+==
+!=
+>
+<
+>=
+<=
+
+Logical operators:
+&&
+||
+!
+
+Bitwise operators:
+&
+|
+^
+~
+>>
+<<
+
+Assignment operators:
+=
++=
+-=
+*=
+/=
+%=
+<<=
+>>=
+&=
+^=
+|=
+
+Misc. operators:
+sizeof()
+&
+*
+?:
+
+Operator precedence:
+1. Unary(Postfix) : () [] -> . ++ -- Left to Right
+2. Unary (Prefix) : + - ! ~ ++ -- (type)* & sizeof Right to Left
+3. Multiplicative : * / % Left to right
+4. Additive : + - Left to Right
+5. Shift : << >> Left to Right
+6. Relational : < <= > >= Left to Right
+7. Equality : == != Left to Right
+8. Bitwise AND : & Left to Right
+9. Bitwise XOR : ^ Left to Right
+10. Bitwise OR : | Left to Right
+11. Logical AND : && Left to Right
+12. Logical OR : || Left to Right
+13. Conditional : ?: Right to Left
+14. Assignment : = += -= *= /= %= >>= <<= &= ^= |= Right to Left
+15. Comma : , Left to Right
+
+
+ 
+
