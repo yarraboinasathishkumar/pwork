@@ -1,2 +1,50 @@
-blog: 
-postname: 
+blog: http://bestsllers.blogspot.in/
+postname: Operator Precedence in C
+
+Operator Precedence in C:
+Case #1:
+int x = 1;
+int y = 0;
+
+y = x+++x++;
+printf("\n y:%d x:%d",y,x);
+output: y:2 x:3
+How compiler simplifies the expression:
+y = x+++x++;
+Based on precedence order it is equivalent to:
+y  = x++ + x++;
+y = x + x; //at run time y = 1 + 1
+x = x + 1; //at run time x = 1 + 1 = 2
+x = x + 1; //at run time x = 2 + 1 =3
+So, it print y is 2 and x is 3
+
+Case #2:
+int w = 1;
+int z = 0;
+
+z = ++w+++w;
+printf("\n z:%d w:%d",z,w);
+
+Output: ---Compiler error---
+error: lvalue required as increment operand
+Reason for Compiler Error:
+
+While compiler simplifying the expression, there is ambiguity in the identification of the tokens.
+unary (post fix) has higher precedence than unary (pre fix). i.e w++ has higher precedence than ++w. It becomes ++(w++)+w as there is no identifier to first unary operator. Then it becomes compiler error.
+
+Case #3:
+If we change the case #2 as follows:
+int w = 1;
+int z = 0;
+
+z = ++w + ++w;
+printf("\n z:%d w:%d",z,w);
+
+Output: z: 6 w:3
+How compiler simplifies the expression:
+z = ++w + ++w;
+Based on precedence order it is equivalent to:
+w = w + 1; //at run time w = 1 + 1 =2
+w = w + 1;//at run time w = 2 + 1 = 3
+z = w + w;//at run time z = 3 + 3 = 6
+So, it print z is 6 and w is 3
