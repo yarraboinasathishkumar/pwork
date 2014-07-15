@@ -16,6 +16,7 @@ void unary_plusplus()
   printf("\n z = ++w+++w; gives error: lvalue required as increment operand compiler error");
   printf("\n z = ++w+++w+w+++w++;gives compile error due to ambiguity of w++ or ++w");
   z = ++w + ++w + w+++w++;
+  //z = (++w)+(++w)+(w++)+(w++);
   printf("\n z= %d w=%d",z,w);
 }
 int main()
