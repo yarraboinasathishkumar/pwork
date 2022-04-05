@@ -1,5 +1,6 @@
 package com.experiment;
 
+import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -68,9 +69,14 @@ public class Main {
         CollectionsExplore collectionsExplore = new CollectionsExplore();
         collectionsExplore.exploreCollections();
     }
-    public static void main(String[] args) {
+    private void exploreInputExperiment() throws IOException {
+        InputExperiment inputExperiment = new InputExperiment();
+        inputExperiment.min();
+    }
+    public static void main(String[] args) throws IOException {
         Main m = new Main();
         m.exploreCollections();
+        m.exploreInputExperiment();
 
     }
 }
