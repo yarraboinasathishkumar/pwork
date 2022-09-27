@@ -192,16 +192,61 @@ def frog_jump():
   print("Ways  for goals:", wg)
 def number_solitaire_max_num(A, d):
   """
+  Pebble to move from 0 to position N-1 in the game.
+  Pebble can move based on dice the possible moves are:
+  d = {1,2,3,4,5,6}. 
+  Array A represents the numbers on each square of the board.
+  A[N] = {A0, A1, A2, ... An-1}
+  Find the maximum possible number based on the moves from 0 to N-1
+  The initial condition of moving pebble from 0 to 0, Max is A[0]
   
+  The number of ways in which the Pebble can move to position j 
+  with a final dice number of di is dp[j − di]. 
+  Thus, the number of ways in which the Pebble can get to 
+  position j is increased by the number of ways of 
+  getting to position j − si, for every die number di.
+  We calculate the maximum number by applying
+  dp[j] = max((dp[j-di] + A[j]) , dp[j])
+  dp[0] = A[0]
+
+
+  Inputs:
+  A : List of number in each square
+  d : List of possible numbers in dice
+
   """
-  pass
+  n = len(A)
+  dp = [A[0]] + [-sys.maxsize] * n 
+  for j in range(1, n):
+    for i in range(len(d)):
+      if j-d[i] >= 0:
+        dp[j] = max((dp[j-d[i]] + A[j]), dp[j])
+  return dp, dp[n-1]
 
 def number_solitaire():
   """
-  A game for one player is played on a board consisting of N consecutive squares, numbered from 0 to N − 1. There is a number written on each square. A non-empty array A of N integers contains the numbers written on the squares. Moreover, some squares can be marked during the game.
-At the beginning of the game, there is a pebble on square number 0 and this is the only square on the board which is marked. The goal of the game is to move the pebble to square number N − 1.
-During each turn we throw a six-sided die, with numbers from 1 to 6 on its faces, and consider the number K, which shows on the upper face after the die comes to rest. Then we move the pebble standing on square number I to square number I + K, providing that square number I + K exists. If square number I + K does not exist, we throw the die again until we obtain a valid move. Finally, we mark square number I + K.
-After the game finishes (when the pebble is standing on square number N − 1), we calculate the result. The result of the game is the sum of the numbers written on all marked squares.
+  A game for one player is played on a board consisting of 
+  N consecutive squares, numbered from 0 to N − 1. 
+  There is a number written on each square. 
+  A non-empty array A of N integers contains the numbers 
+  written on the squares. 
+  Moreover, some squares can be marked during the game.
+At the beginning of the game, there is a pebble 
+on square number 0 and this is the only square 
+on the board which is marked. The goal of the game 
+is to move the pebble to square number N − 1.
+During each turn we throw a six-sided die, 
+with numbers from 1 to 6 on its faces, and consider 
+the number K, which shows on the upper face after the 
+die comes to rest. Then we move the pebble standing on 
+square number I to square number I + K, providing that 
+square number I + K exists. If square number I + K does not exist, 
+we throw the die again until we obtain a valid move. 
+Finally, we mark square number I + K.
+After the game finishes (when the pebble is standing 
+on square number N − 1), we calculate the result. 
+The result of the game is the sum of the numbers written 
+on all marked squares.
 For example, given the following array:
    A[0] = 1
     A[1] = -2
@@ -211,13 +256,21 @@ For example, given the following array:
     A[5] = -2
 one possible game could be as follows:
 the pebble is on square number 0, which is marked;
-we throw 3; the pebble moves from square number 0 to square number 3; we mark square number 3;
-we throw 5; the pebble does not move, since there is no square number 8 on the board;
-we throw 2; the pebble moves to square number 5; we mark this square and the game ends.
-The marked squares are 0, 3 and 5, so the result of the game is 1 + 9 + (−2) = 8. This is the maximal possible result that can be achieved on this board.
+we throw 3; the pebble moves from square number 0 to 
+square number 3; we mark square number 3;
+we throw 5; the pebble does not move, since there is 
+no square number 8 on the board;
+we throw 2; the pebble moves to square number 5; 
+we mark this square and the game ends.
+The marked squares are 0, 3 and 5, 
+so the result of the game is 1 + 9 + (−2) = 8. 
+This is the maximal possible result that can be 
+achieved on this board.
 Write a function:
 class Solution { public int solution(int[] A); }
-that, given a non-empty array A of N integers, returns the maximal result that can be achieved on the board represented by array A.
+that, given a non-empty array A of N integers, returns the 
+maximal result that can be achieved on the board represented 
+by array A.
 For example, given the array
    A[0] = 1
     A[1] = -2
@@ -228,10 +281,16 @@ For example, given the array
 the function should return 8, as explained above.
 Write an efficient algorithm for the following assumptions:
 N is an integer within the range [2..100,000];
-each element of array A is an integer within the range [−10,000..10,000].
+each element of array A is an integer within the 
+range [−10,000..10,000].
 
   """
-  pass
+  A = [1, -2, 0, 9, -1, -2]
+  d = [1,2,3,4,5,6]
+  dp, mn = number_solitaire_max_num(A,d)
+  print(A)
+  print(dp)
+  print(mn)
 
 def main():
     print("Examples for dynamic programming concepts")
@@ -247,7 +306,8 @@ def main():
     #option = int(input("Select the option:"))
     
     #dp_coin_changing()
-    frog_jump()
+    #frog_jump()
+    number_solitaire()
 
 
 
