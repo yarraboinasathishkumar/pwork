@@ -190,6 +190,7 @@ def frog_jump():
   print("Different ways:", output)
   print("Different Goals:",[i for i in range(k+1)])
   print("Ways  for goals:", wg)
+
 def number_solitaire_max_num(A, d):
   """
   Pebble to move from 0 to position N-1 in the game.
@@ -292,6 +293,59 @@ range [−10,000..10,000].
   print(dp)
   print(mn)
 
+def min_abs_sum_impl(A, seq):
+"""
+Consider the initial value is 0 if the array A is empty.
+dp[0] = 0 
+Initialize minimum value to maxsize (infinity) 
+
+"""
+n = len(A)
+dp = [0] + [sys.maxsize] * n
+S = [0] * (n+1)
+for j in range(1, n+1):
+  for i in range(len(seq)):
+    value = dp[j-1] + (A[j-1] * seq[i])
+    if abs(dp[j]) > abs(value):
+      dp[j] = value
+      S[j] = seq[i]
+return S, dp, dp[n]
+
+def min_absolute_sum():
+  """
+  For a given array A of N integers and a sequence S of N 
+  integers from the set {−1, 1}, we define val(A, S) as follows:
+val(A, S) = |sum{ A[i]*S[i] for i = 0..N−1 }|
+(Assume that the sum of zero elements equals zero.)
+
+For a given array A, we are looking for such a sequence S 
+that minimizes val(A,S).
+Write a function:
+class Solution { public int solution(int[] A); }
+that, given an array A of N integers, computes the 
+minimum value of val(A,S) from all possible values of 
+val(A,S) for all possible sequences S of N integers 
+from the set {−1, 1}.
+For example, given array:
+ A[0] =  1
+  A[1] =  5
+  A[2] =  2
+  A[3] = -2
+your function should return 0, since for S = [−1, 1, −1, 1], 
+val(A, S) = 0, which is the minimum possible value.
+Write an efficient algorithm for the following assumptions:
+N is an integer within the range [0..20,000];
+each element of array A is an integer within the range [−100..100].
+
+"""
+A=[1,5,2,-2]
+seq = [-2,-1, 1, 2]
+S, dp, output = min_abs_sum_impl(A,seq)
+print("min value:", output)
+print(dp)
+print(S)
+
+
 def main():
     print("Examples for dynamic programming concepts")
     print("Dynamic programming is a method by which a \
@@ -307,7 +361,8 @@ def main():
     
     #dp_coin_changing()
     #frog_jump()
-    number_solitaire()
+    #number_solitaire()
+    min_absolute_sum()
 
 
 
