@@ -7,8 +7,6 @@ def permutations(r, c=''):
         permutations(nR, nC)
     
 
-
-
 if __name__ == "__main__":
     s= 'ABCD'
     permutations(s)
