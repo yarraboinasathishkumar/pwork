@@ -3,4 +3,5 @@ cpp_lang/design_patterns/singleton_bin
 .idea
 *.iml
 java_lang/out/**
+projects/**/target/**
 
